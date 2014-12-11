@@ -1,9 +1,20 @@
 var content = [
-	['Create assembla project'],
-	['Createssf'],
-	['tew'],
-	['Createssf'],
-	['tewfwef gwergw']
+	['Gathering data .......................'],
+	['......................................'],
+	['Starting trace route sequence'],
+	['Check connection .....................'],
+	['Waiting for remote response ..........'],
+	['Done'],
+	['Connecting to SSL tunnel'],
+	['FAILED !!! '],
+	['Reconnecting...........................'],
+	['..'],
+	['Server responded with zero bytes'],
+	['Retrying with Internet Explorer'],
+	['FATAL !!!!'],
+	['Automatic email sent to group-dev@mediamonks.com'],
+	['Assembla ticket created'],
+	['Assign ticket to every backend developer']
 ];
 
 var consoleContent = [
