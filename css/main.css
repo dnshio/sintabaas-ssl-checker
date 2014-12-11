@@ -21,13 +21,22 @@ html, body {
 
 .search-input {
 	width: 350px;
+	height: 25px;
+	padding: 0 5px;
 	border: 1px solid #b6b6b6;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .search-input:hover,
 .search-input:focus {
 	border-color: #595959;
 	outline: none;
+}
+
+#btnSubmit {
+	height: 26px;
 }
 
 .top {
@@ -61,7 +70,8 @@ html, body {
 	background: #000;
 	color: #fff;
 	overflow-y: scroll;
-	padding-left: 2px;
+	padding: 15px 10px 10px 15px;
+	margin: 0;
 }
 #console-panel > li.prompt:before {
 	content: 'h4x0r@precise32:$  ';
