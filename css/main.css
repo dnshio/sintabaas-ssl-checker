@@ -44,6 +44,7 @@ html, body {
 #top-steps li,
 #bottom-steps li {
 	list-style: none;
+	font-family: monospace, serif;
 }
 
 #bottom-steps li {
