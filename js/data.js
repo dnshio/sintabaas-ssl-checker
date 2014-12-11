@@ -1,3 +1,8 @@
+var endMessage = [
+	['<li class="error done">We are not sure...</li>'],
+	['<li class="done">Yes</li>']
+];
+
 var content = [
 	['Gathering data .......................'],
 	['......................................'],

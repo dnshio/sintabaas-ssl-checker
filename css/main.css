@@ -60,6 +60,14 @@ html, body {
 	color: green;
 }
 
+#top-steps {
+	padding: 0 10px 10px 15px;
+}
+
+#top-steps li.done {
+	font-size: 20px;
+}
+
 #console-panel {
 	font-family: monospace, serif;
 	display: block;

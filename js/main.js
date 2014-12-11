@@ -1,13 +1,26 @@
 $( document ).ready(function() {
-	$("#btnSubmit").click(function(){
-		checkHttps();
-		consoleFrame();
-	});
-
+	var delay = 0;
+	var bottomDelay = 0;
+	var done = false;
+	var buzy = false;
 	var consolePanel = document.getElementById('console-panel');
 	var topPanel = document.getElementsByClassName('top')[0];
 
-	var delay = 0;
+	$("#btnSubmit").click(function(){
+		if(buzy == false){
+			$('#console-panel').empty();
+			$('#top-steps').empty();
+
+			delay = 0;
+			bottomDelay = 0;
+			done = false;
+			buzy = true;
+
+			checkHttps();
+			consoleFrame();
+		}
+	});
+
 	var checkHttps = function() {
 		for(var i = 0; i < content.length; i++) {
 			var rand = ((Math.floor(Math.random() * 30) + 10) * 100);
@@ -22,9 +35,8 @@ $( document ).ready(function() {
 		}
 	};
 
-	var bottomDelay = 0;
 	var consoleFrame = function() {
-		var times = 2;
+		var times = 1;
 		for(var j = 0; j < times; j++){
 			for(var i = 0; i < consoleContent.length; i++) {
 				var rand = ((Math.floor(Math.random() * 80) + 1) * 10);
@@ -46,20 +58,25 @@ $( document ).ready(function() {
 			if(type == 'console'){
 				$(el ).append(consoleContent[num]);
 			}else {
-				$(el ).append('<li>' + content[num] + '</li>');
+				if(done == false){
+					$(el ).append('<li>' + content[num] + '</li>');
+				}
 			}
 
 			if(last) {
+				done = true;
+				buzy = false;
+				$('#top-steps li' ).css( 'opacity', '0' );
 				$('#console-panel li' ).css( 'opacity', '0' );
 				setTimeout(function(){
+					$('#top-steps li' ).css( 'opacity', '1' );
 					$('#console-panel li' ).css( 'opacity', '1' );
 					setTimeout(function(){
-						$('#console-panel' ).empty();
-						var endMessage = [
-							['We are not sure...'],
-						    ['Yes']
-						];
-						$(el ).append('<li class="error">' + endMessage[Math.floor(Math.random()*endMessage.length)] + '</li>');
+						$('#console-panel').empty();
+						$('#top-steps').empty();
+						var rand = endMessage[Math.floor(Math.random()*endMessage.length)];
+						$(el ).append(rand);
+						$('#top-steps').append(rand);
 					}, 200);
 				}, 200);
 			}
@@ -68,9 +85,4 @@ $( document ).ready(function() {
 			consolePanel.scrollTop = consolePanel.scrollHeight;
 		}, delay);
 	};
-
-	var endMessage = [
-		['We are not sure...'],
-		['Yes']
-	];
 });
